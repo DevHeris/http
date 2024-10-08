@@ -19,7 +19,6 @@ export class SimpleHttpComponent {
       .subscribe((data) => {
         this.data = data;
         this.loading = false;
-        console.log(data);
       });
   }
 }
