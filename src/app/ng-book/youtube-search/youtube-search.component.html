@@ -1,1 +1,4 @@
-<p>youtube-search works!</p>
+<app-search-box
+  (loading)="loading = $event"
+  (results)="updateResults($event)"
+></app-search-box>
