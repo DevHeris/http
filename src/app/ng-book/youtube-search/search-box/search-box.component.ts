@@ -42,6 +42,19 @@ export class SearchBoxComponent implements OnInit {
         switchMap((query: string) => this.youtube.search(query))
       )
       // act on the return of the search
-      .subscribe((res) => console.log(res));
+      .subscribe({
+        // success
+        next: (results: SearchResult[]) => {
+          this.loading.emit(false);
+          this.results.emit(results);
+        },
+        // error
+        error: (err) => {
+          console.log(err);
+          this.loading.emit(false);
+        },
+        // on Completion
+        complete: () => this.loading.emit(false),
+      });
   }
 }

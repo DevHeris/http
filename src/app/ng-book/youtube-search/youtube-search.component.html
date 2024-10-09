@@ -1,4 +1,24 @@
-<app-search-box
-  (loading)="loading = $event"
-  (results)="updateResults($event)"
-></app-search-box>
+<div class="container">
+  <div class="page-header">
+    <h1>
+      YouTube Search @if (loading) {
+      <img style="float: right" src="assets/images/loading.gif" />
+      }
+    </h1>
+  </div>
+
+  <div class="row">
+    <div class="input-group input-group-lg col-md-12">
+      <app-search-box
+        (loading)="loading = $event"
+        (results)="updateResults($event)"
+      ></app-search-box>
+    </div>
+  </div>
+
+  <div class="row">
+    @for (result of results; track result ) {
+    <app-search-result [result]="result"> </app-search-result>
+    }
+  </div>
+</div>

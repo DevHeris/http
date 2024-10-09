@@ -8,5 +8,9 @@ import { SearchResult } from './search-result/search-result.model';
 })
 export class YoutubeSearchComponent {
   loading: boolean;
-  updateResults(results: SearchResult[]) {}
+  results: SearchResult[];
+
+  updateResults(results: SearchResult[]) {
+    this.results = results;
+  }
 }
